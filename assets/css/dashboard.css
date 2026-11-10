@@ -1,0 +1,149 @@
+/* =========================================================
+   CAREERAI - DASHBOARD LAYOUT
+   ========================================================= */
+
+.dashboard-wrapper {
+    display: flex;
+    min-height: calc(100vh - 72px);
+    background-color: var(--very-light-bg);
+}
+
+/* Sidebar Navigation */
+.dash-sidebar {
+    width: 260px;
+    background-color: var(--dark-navy);
+    color: var(--white);
+    padding: 24px 16px;
+    flex-shrink: 0;
+}
+
+.dash-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.dash-menu a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.dash-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+}
+
+.dash-menu a.active {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    font-weight: 600;
+}
+
+/* Main Content Area */
+.dash-content {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+.dash-header {
+    margin-bottom: 32px;
+}
+
+.dash-header h1 {
+    font-size: 28px;
+    color: var(--dark-navy);
+    margin-bottom: 8px;
+}
+
+.dash-header p {
+    color: var(--secondary-text);
+    font-size: 15px;
+}
+
+/* Profile Form Card */
+.dash-card {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    box-shadow: var(--shadow-sm);
+    max-width: 800px;
+}
+
+.dash-card .form-group {
+    margin-bottom: 20px;
+}
+
+.dash-card label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--dark-navy);
+    margin-bottom: 6px;
+}
+
+.dash-card input[type="text"],
+.dash-card input[type="number"],
+.dash-card select,
+.dash-card textarea {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 15px;
+    font-family: inherit;
+    color: var(--main-text);
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    transition: border-color 0.2s ease;
+}
+
+.dash-card input:focus,
+.dash-card select:focus,
+.dash-card textarea:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(23, 105, 224, 0.12);
+}
+
+.dash-card textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Mobile Responsiveness for Dashboard */
+@media (max-width: 900px) {
+    .dashboard-wrapper {
+        flex-direction: column;
+    }
+    .dash-sidebar {
+        width: 100%;
+        padding: 16px;
+    }
+    .dash-menu {
+        flex-direction: row;
+        overflow-x: auto;
+    }
+    .dash-menu a {
+        white-space: nowrap;
+    }
+    .dash-content {
+        padding: 24px 20px;
+    }
+    .form-row-2 {
+        grid-template-columns: 1fr;
+    }
+}

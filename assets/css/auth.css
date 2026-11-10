@@ -1,0 +1,279 @@
+/* =========================================================
+   CAREERAI - AUTHENTICATION PAGES STYLES
+   Used by register.php, login.php, verify.php,
+   forgot-password.php, and reset-password.php
+   ========================================================= */
+
+.auth-wrapper {
+    position: relative;
+    min-height: calc(100vh - 72px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 20px;
+    background: linear-gradient(180deg, var(--very-light-bg) 0%, var(--white) 100%);
+    overflow: hidden;
+}
+
+/* Faded CareerAI logo behind the auth card */
+.auth-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1100px;
+    height: 500px;
+    transform: translate(-50%, -50%);
+    background-image: url('../images/logo-bg.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.10;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Keep the auth card above the background */
+.auth-wrapper .auth-card {
+    position: relative;
+    z-index: 1;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 440px;
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    padding: 40px 36px;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.auth-header h1 {
+    font-size: 26px;
+    color: var(--dark-navy);
+    margin-bottom: 8px;
+}
+
+.auth-header p {
+    font-size: 14px;
+    color: var(--secondary-text);
+}
+
+.auth-form .form-group {
+    margin-bottom: 18px;
+}
+
+.auth-form label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--dark-navy);
+    margin-bottom: 6px;
+}
+
+.auth-form input[type="text"],
+.auth-form input[type="email"],
+.auth-form input[type="password"] {
+    width: 100%;
+    padding: 11px 14px;
+    font-size: 14px;
+    font-family: inherit;
+    color: var(--main-text);
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth-form input:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(23, 105, 224, 0.12);
+}
+
+.auth-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.auth-form .btn-submit {
+    width: 100%;
+    margin-top: 6px;
+}
+
+.auth-footer-text {
+    text-align: center;
+    font-size: 13px;
+    color: var(--secondary-text);
+    margin-top: 22px;
+}
+
+.auth-footer-text a {
+    color: var(--primary-blue);
+    font-weight: 600;
+}
+
+.auth-footer-text a:hover {
+    color: var(--primary-blue-dark);
+}
+
+.alert {
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    margin-bottom: 18px;
+    line-height: 1.5;
+}
+
+.alert-error {
+    background-color: #FDECEC;
+    border: 1px solid #F5C2C2;
+    color: #B42424;
+}
+
+.alert-success {
+    background-color: #E8F8F0;
+    border: 1px solid #B9E5CE;
+    color: #0F7A47;
+}
+
+.alert ul {
+    margin: 0;
+    padding-left: 18px;
+    list-style: disc;
+}
+
+/* Password field with show/hide toggle */
+.password-field {
+    position: relative;
+}
+
+.password-field input {
+    padding-right: 80px;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: var(--primary-blue);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    padding: 4px 6px;
+    border-radius: var(--radius-sm);
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.password-toggle:hover {
+    color: var(--primary-blue-dark);
+    background-color: var(--light-blue);
+}
+
+.password-toggle:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(23, 105, 224, 0.20);
+}
+
+/* Password strength checklist */
+.password-rules {
+    list-style: none;
+    margin: 8px 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 14px;
+}
+
+.password-rules li {
+    font-size: 12px;
+    color: var(--secondary-text);
+    position: relative;
+    padding-left: 16px;
+    transition: color 0.2s ease;
+}
+
+.password-rules li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--border-color);
+    transition: background-color 0.2s ease;
+}
+
+.password-rules li.valid {
+    color: var(--success-green);
+}
+
+.password-rules li.valid::before {
+    background-color: var(--success-green);
+}
+
+/* Disabled submit button */
+.auth-form .btn-submit:disabled {
+    background-color: #B7C4D4;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* =========================================================
+   MOBILE RESPONSIVENESS (Phone screens)
+   ========================================================= */
+@media (max-width: 600px) {
+    /* Make the card take up more width on phones */
+    .auth-card {
+        padding: 28px 22px;
+        border-radius: var(--radius-md);
+    }
+
+    /* Stack first name and last name vertically */
+    .auth-form .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    /* Stack password rules vertically */
+    .password-rules {
+        grid-template-columns: 1fr;
+    }
+
+    /* 
+     * Fix iOS auto-zoom. 
+     * If font-size is < 16px, Safari zooms in when tapping the input.
+     */
+    .auth-form input[type="text"],
+    .auth-form input[type="email"],
+    .auth-form input[type="password"] {
+        font-size: 16px;
+        padding: 14px 16px; /* Larger padding for easier tapping */
+    }
+
+    /* Make the submit button larger for thumbs */
+    .auth-form .btn-submit {
+        padding: 16px 24px;
+        font-size: 16px;
+    }
+
+    /* Scale down the background logo so it fits on the screen */
+    .auth-wrapper::before {
+        width: 300px; 
+        height: 300px;
+        opacity: 0.05; 
+    }
+}
